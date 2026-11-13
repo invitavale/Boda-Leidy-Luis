@@ -49,7 +49,7 @@ function setupIntroEnvelope() {
         video.style.display = 'none';
         anim.hidden = false;
         anim.src = anim.getAttribute('data-src');
-        setTimeout(finishIntro, 7400);
+        setTimeout(finishIntro, 6700);
     }
 
     function start() {

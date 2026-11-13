@@ -3255,3 +3255,41 @@ html, body { background-color: #F5EEE1; }
     -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent 100%);
     mask-image: linear-gradient(180deg, #000 78%, transparent 100%);
 }
+
+/* =====================================================================
+   ENTRADA DE LA PORTADA al abrir la invitación
+   "Nos casamos" se abre letra a letra, cada nombre entra desde su lado,
+   el "&" aparece con un destello dorado, la línea se dibuja y al final
+   la frase sube suavemente.
+   ===================================================================== */
+.hero-names .hn-names { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; }
+.hn-n, .hero-names .hn-amp { display: inline-block; }
+body .hero-section .hero-names .hn-kicker { opacity: 0; filter: blur(8px); transform: scaleX(1.7); }
+.hn-n1 { opacity: 0; transform: translateX(-70px); filter: blur(10px); }
+.hn-n2 { opacity: 0; transform: translateX(70px); filter: blur(10px); }
+.hero-names .hn-amp { opacity: 0; transform: scale(0.2) rotate(-25deg); }
+
+body.hero-revealed .hero-section .hero-names .hn-kicker { animation: hn-kicker 1.8s cubic-bezier(.2,.7,.2,1) 0.4s forwards !important; }
+body.hero-revealed .hn-n1 { animation: hn-lado 1.6s cubic-bezier(.2,.8,.2,1) 1.1s forwards; }
+body.hero-revealed .hn-n2 { animation: hn-lado 1.6s cubic-bezier(.2,.8,.2,1) 1.1s forwards; }
+body.hero-revealed .hero-names .hn-amp { animation: hn-amp 1.3s cubic-bezier(.3,1.5,.5,1) 2.1s forwards; }
+body.hero-revealed .hero-names .hn-line { animation: ht-line 1.4s ease 2.8s forwards !important; }
+body.hero-revealed .hero-names .hn-phrase { animation: hn-in 1.6s cubic-bezier(.2,.7,.2,1) 3.3s forwards !important; }
+
+@keyframes hn-kicker {
+    0%   { opacity: 0; transform: scaleX(1.7); filter: blur(8px); }
+    100% { opacity: 1; transform: none; filter: blur(0); }
+}
+@keyframes hn-lado {
+    0%   { opacity: 0; filter: blur(10px); }
+    60%  { opacity: 1; }
+    100% { opacity: 1; transform: none; filter: blur(0); }
+}
+@keyframes hn-amp {
+    0%   { opacity: 0; transform: scale(0.2) rotate(-25deg); text-shadow: none; }
+    60%  { opacity: 1; transform: scale(1.25) rotate(4deg); text-shadow: 0 0 18px rgba(246, 226, 176, 0.95), 0 0 36px rgba(246, 226, 176, 0.6); }
+    100% { opacity: 1; transform: none; text-shadow: 0 0 10px rgba(246, 226, 176, 0.45); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero-names .hn-kicker, .hn-n1, .hn-n2, .hero-names .hn-amp { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; }
+}
