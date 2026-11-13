@@ -387,7 +387,7 @@ function openLocation(location) {
 }
 
 // Álbum compartido de Google Fotos (antes: https://photos.app.goo.gl/p9PGQHWrvLG1Bpj28)
-const PHOTO_ALBUM_URL = 'https://photos.app.goo.gl/fey51JWfjgCk88r79';
+const PHOTO_ALBUM_URL = 'https://photos.app.goo.gl/oXDWByXxaP1L3TE27';
 
 function sharePhotos() {
     // Abre el álbum compartido de Google Fotos en una pestaña nueva
@@ -427,8 +427,21 @@ function showGifts() {
 
 // Confirmación de asistencia (Google Form)
 // (antes: https://docs.google.com/forms/d/e/1FAIpQLSdIYoM33yAkMmS4DZCRVmO9_IE0gZT4eEw8cV0r2PgWlYE0Ag/viewform?usp=header)
+// Confirmación por WhatsApp con mensaje predefinido.
+// Si el enlace trae ?invitados=... o ?familia=..., se agregan al mensaje.
+const RSVP_WHATSAPP = '18295609088';
 function confirmAttendance() {
-    // Desactivado en esta versión de muestra.
+    let msg = 'Confirmo mi asistencia a la boda de Leidy y Luis.';
+    try {
+        const params = new URLSearchParams(window.location.search);
+        const inv = params.get('invitados');
+        const fam = params.get('familia');
+        if (inv) msg += '\nInvitados: ' + inv.split(',').map(n => n.trim()).filter(Boolean).join(', ');
+        else if (fam) msg += '\nFamilia ' + fam.trim();
+    } catch (e) {}
+    const url = 'https://wa.me/' + RSVP_WHATSAPP + '?text=' + encodeURIComponent(msg);
+    const win = window.open(url, '_blank');
+    if (win) win.opener = null; else window.location.href = url;
 }
 
 // Sistema de Toast
