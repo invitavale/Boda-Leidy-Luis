@@ -137,8 +137,8 @@
     window.closeGiftModal = closeGiftModal;
     window.showGifts = openGiftModal; // compatibilidad con onclick="showGifts()"
     /* ----- Código de vestimenta (imagen flotante) ----- */
-    const DRESS_IMG = 'codigo-vestimenta.jpg?v=7';
-    const DRESS_IMG_MOVIL = 'codigo-vestimenta-movil.jpg?v=7';
+    const DRESS_IMG = 'codigo-vestimenta.jpg?v=8';
+    const DRESS_IMG_MOVIL = 'codigo-vestimenta-movil.jpg?v=8';
 
     function buildDress() {
         if (document.getElementById('rgDressOverlay')) return;
@@ -147,7 +147,7 @@
               '<div class="rg-sheet rg-dress">' +
                 '<button type="button" class="rg-close" aria-label="Cerrar">&times;</button>' +
                 '<picture><source media="(max-width: 640px)" srcset="' + DRESS_IMG_MOVIL + '">' +
-                '<img src="' + DRESS_IMG + '" alt="Código de vestimenta formal elegante. Colores sugeridos: azul marino, borgoña, verde oliva, verde salvia, terracota y malva. Colores prohibidos: dorado, champagne, beis y blanco." loading="lazy"></picture>' +
+                '<img src="' + DRESS_IMG + '" alt="Código de vestimenta formal elegante. Colores sugeridos: azul marino, borgoña, verde oliva, verde salvia, terracota y malva. Colores prohibidos: dorado, champagne, beige y blanco." loading="lazy"></picture>' +
               '</div>' +
             '</div>');
         const o = document.getElementById('rgDressOverlay');
