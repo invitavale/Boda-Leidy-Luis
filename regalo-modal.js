@@ -10,12 +10,13 @@
     const REGALO = {
         mesaRegalosUrl: '#',
         titulares: [
-            { nombre: 'Leidy Laura Cáceres Díaz', cuentas: [['Cuenta de ahorro · Pesos (RD$)', '9609982355'], ['Cuenta de ahorro · Dólares (US$)', '9607777949']] }
+            { nombre: 'Leidy Laura Cáceres Díaz', banco: 'Banco de Reservas (Banreservas)', cuentas: [['Cuenta de ahorro en pesos (RD$)', '9609982355'], ['Cuenta de ahorro en dólares (US$)', '9607777949']] }
         ]
     };
 
     function holder(h) {
         return '<div class="rg-holder"><div class="rg-holder-name">' + h.nombre + '</div>' +
+            (h.banco ? '<div class="rg-holder-bank">' + h.banco + '</div>' : '') +
             h.cuentas.map(function (c) { return row(c[0], c[1]); }).join('') +
             (h.cedula ? row('Cédula', h.cedula) : '') +
             (h.correo ? row('Correo', h.correo) : '') +
@@ -136,8 +137,8 @@
     window.closeGiftModal = closeGiftModal;
     window.showGifts = openGiftModal; // compatibilidad con onclick="showGifts()"
     /* ----- Código de vestimenta (imagen flotante) ----- */
-    const DRESS_IMG = 'codigo-vestimenta.jpg?v=6';
-    const DRESS_IMG_MOVIL = 'codigo-vestimenta-movil.jpg?v=6';
+    const DRESS_IMG = 'codigo-vestimenta.jpg?v=7';
+    const DRESS_IMG_MOVIL = 'codigo-vestimenta-movil.jpg?v=7';
 
     function buildDress() {
         if (document.getElementById('rgDressOverlay')) return;
@@ -146,7 +147,7 @@
               '<div class="rg-sheet rg-dress">' +
                 '<button type="button" class="rg-close" aria-label="Cerrar">&times;</button>' +
                 '<picture><source media="(max-width: 640px)" srcset="' + DRESS_IMG_MOVIL + '">' +
-                '<img src="' + DRESS_IMG + '" alt="Código de vestimenta formal elegante. Colores sugeridos: verde oliva, verde salvia, borgoña, malva, terracota, azul marino, dorado, cobre y champagne. Colores prohibidos: tonos dorados (antiguo, ámbar, cosecha, satinado, arena, diamante, trigo, perla y champagne dorado)." loading="lazy"></picture>' +
+                '<img src="' + DRESS_IMG + '" alt="Código de vestimenta formal elegante. Colores sugeridos: azul marino, borgoña, verde oliva, verde salvia, terracota y malva. Colores prohibidos: dorado, champagne, beis y blanco." loading="lazy"></picture>' +
               '</div>' +
             '</div>');
         const o = document.getElementById('rgDressOverlay');

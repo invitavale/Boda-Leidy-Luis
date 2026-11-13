@@ -206,3 +206,5 @@
 /* Paleta nueva: en celular la imagen es vertical; se puede desplazar dentro */
 .rg-dress { max-height: 92vh; max-height: 92dvh; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
 .rg-dress .rg-close { position: sticky; float: right; margin: 6px 6px -36px 0; z-index: 2; }
+
+.rg-holder-bank { margin: -0.2rem 0 0.7rem; text-align: center; font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: 0.98rem; color: #7D6A4F; }
